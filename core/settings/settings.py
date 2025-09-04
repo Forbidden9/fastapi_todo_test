@@ -1,0 +1,27 @@
+from decouple import config
+
+
+class Settings:
+
+    # GENERAL
+    PROJECT_NAME = config("PROJECT_NAME")
+    PROJECT_VERSION = config("PROJECT_VERSION")
+
+    # DATABASE
+    POSTGRES_USER = config("POSTGRES_USER")
+    POSTGRES_PASSWORD = config("POSTGRES_PASSWORD")
+    POSTGRES_SERVER = config("POSTGRES_SERVER")
+    POSTGRES_PORT = config("POSTGRES_PORT")
+    POSTGRES_DB = config("POSTGRES_DB")
+    DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}:{POSTGRES_PORT}/{POSTGRES_DB}"
+
+    # OAUTH2_JWT
+    JWT_ALGORITHM = config("JWT_ALGORITHM")
+    SECRET_KEY = config("SECRET_KEY")
+    ACCESS_TOKEN_EXPIRES_IN = config("ACCESS_TOKEN_EXPIRES_IN")
+
+    # CLIENT
+    CLIENT = config("CLIENT")
+
+
+settings = Settings()
